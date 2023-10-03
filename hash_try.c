@@ -6,6 +6,13 @@
 
 
 
+/// @brief example of Token structure (can be easily appended)
+struct Token{
+    char name[50];
+    struct Token* next;
+};
+
+
 struct Token* tokenCtor(){
     ///TODO
 }
@@ -24,13 +31,6 @@ int tokenInsert(){
 int tokenRemove(){
     ///TODO
 }
-
-
-/// @brief example of Token structure (can be easily appended)
-struct Token{
-    char name[50];
-    struct Token* next;
-};
 
 
 /// @brief function used to ensure hashTable initialised with NULL pointers
