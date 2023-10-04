@@ -14,22 +14,33 @@ struct Token{
 
 
 struct Token* tokenCtor(){
-    ///TODO
+    struct Token* token;
+
+    if ((token = malloc(sizeof(struct Token))) == NULL){
+        ///TODO call error
+    }
+
+    return token;
 }
 
 
-int tokenDtor(){
-    ///TODO
+int tokenDtor(struct Token* token){
+    free(token);
+    if(token == NULL) return 0;
+
+    return 1;
 }
 
 
 int tokenInsert(){
     ///TODO
+    return 0;
 }
 
 
 int tokenRemove(){
     ///TODO
+    return 0;
 }
 
 
