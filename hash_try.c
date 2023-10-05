@@ -73,7 +73,7 @@ unsigned long hash(unsigned char *str) {
 int main() {
     struct Token* hashTable[HASH_MAX_SIZE]; ///declaration of hash table, might have to be done in a function if hash size is not static
     
-    hashInit(hashTable);    ///calling the hash init function
+    hashInit(hashTable);
 
     char input[] = "Hello, Worlb!";
     unsigned long hashValue = hash((unsigned char *)input); // Calculate the hash value
@@ -81,6 +81,10 @@ int main() {
     if ((hashTable[hashValue] = malloc(sizeof(struct Token))) != NULL){
         strcpy(hashTable[hashValue]->name, input);
         hashTable[hashValue]->next = NULL;
+    }
+    else{
+        fprintf(stderr, "Malloc fail");
+        exit(1);
     }
 
     printf("Hash value: %lu\n", hashValue); // Print the hash value to the console
