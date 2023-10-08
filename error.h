@@ -9,4 +9,4 @@
 #define ERROR_EXPR          7   /// semanticka chyba typove kompatibility v aritmetickych, retezcovych a relacnich vyrazech.
 #define ERROR_PARAM_TYPE    8   /// semanticka chyba odvozeni typu – typ promenne nebo parametru neni uveden a nelze odvodit od pouziteho vyrazu.
 #define ERROR_OTHER         9   /// ostatni semanticke chyby
-#define ERROR_INTERNAL      99  /// interni chyba pcekladace tj. neovlivnena vstupnim programem (napr. chyba alokace pameti atd.).
+#define ERROR_INTERNAL      99  /// interni chyba prekladace tj. neovlivnena vstupnim programem (napr. chyba alokace pameti atd.).
