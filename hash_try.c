@@ -6,13 +6,13 @@
 
 
 
-/// @brief example of Token structure (can be easily appended)
+/// @brief Token
 struct Token{
     char name[50];
     struct Token* next;
 };
 
-
+/// @brief returns adress of new empty token
 struct Token* tokenCtor(){
     struct Token* token;
 
@@ -23,12 +23,11 @@ struct Token* tokenCtor(){
     return token;
 }
 
-
-int tokenDtor(struct Token* token){
+/// @brief frees token and all of its members
+/// @param token 
+void tokenDtor(struct Token* token){
+    ///TODO free any members of token
     free(token);
-    if(token == NULL) return 0;
-
-    return 1;
 }
 
 
@@ -44,7 +43,7 @@ int tokenRemove(){
 }
 
 
-/// @brief function used to ensure hashTable initialised with NULL pointers
+/// @brief function initialises hashTable with NULL pointers
 /// @param hashTable 
 void hashInit(struct Token** hashTable){
 
@@ -56,7 +55,9 @@ void hashInit(struct Token** hashTable){
 }
 
 
-// Define a hash function that takes a string as input
+/// @brief hashes given string
+/// @param str 
+/// @return hash value within HASH_MAX_SIZE
 unsigned long hash(unsigned char *str) {
     unsigned long hash = 5381; // Initial hash value
     int c;
