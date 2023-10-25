@@ -2,49 +2,62 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define HASH_MAX_SIZE 1024 ///defined maximum size for hash table
+#define HASH_MAX_SIZE 1024 //defined maximum size for hash table
 
 
 
-/// @brief Token
+/**
+ * @file hash_try.c
+ * @brief This file contains the definition of the Token struct.
+ */
+
+/**
+ * @brief Token struct represents a token with a name and a pointer to the next token.
+ */
 struct Token{
-    char name[50];
-    struct Token* next;
+    char name[50]; /**< The name of the token */
+    struct Token* next; /**< Pointer to the next token */
 };
 
-/// @brief returns adress of new empty token
+// @brief returns address of a new empty token
+//
+// This function allocates memory for a new Token struct and returns a pointer to it.
+// If the allocation fails, the function prints an error message to stderr and exits the program.
+//
+// @return a pointer to the newly allocated Token struct
 struct Token* tokenCtor(){
     struct Token* token;
 
     if ((token = malloc(sizeof(struct Token))) == NULL){
-        ///TODO call error
+        fprintf(stderr, "Malloc fail");
+        exit(1);
     }
 
     return token;
 }
 
-/// @brief frees token and all of its members
-/// @param token 
+// @brief frees token and all of its members
+// @param token 
 void tokenDtor(struct Token* token){
-    ///TODO free any members of token
+    //TODO free all members
     free(token);
 }
 
 
 int tokenInsert(){
-    ///TODO
+    //TODO
     return 0;
 }
 
 
 int tokenRemove(){
-    ///TODO
+    //TODO
     return 0;
 }
 
 
-/// @brief function initialises hashTable with NULL pointers
-/// @param hashTable 
+// @brief function initialises hashTable with NULL pointers
+// @param hashTable 
 void hashInit(struct Token** hashTable){
 
     for(int i = 0 ; i < HASH_MAX_SIZE ; i++){
@@ -55,9 +68,9 @@ void hashInit(struct Token** hashTable){
 }
 
 
-/// @brief hashes given string
-/// @param str 
-/// @return hash value within HASH_MAX_SIZE
+// @brief hashes given string
+// @param str 
+// @return hash value within HASH_MAX_SIZE
 unsigned long hash(unsigned char *str) {
     unsigned long hash = 5381; // Initial hash value
     int c;
@@ -72,7 +85,7 @@ unsigned long hash(unsigned char *str) {
 
 
 int main() {
-    struct Token* hashTable[HASH_MAX_SIZE]; ///declaration of hash table, might have to be done in a function if hash size is not static
+    struct Token* hashTable[HASH_MAX_SIZE]; //declaration of hash table, might have to be done in a function if hash size is not static
     
     hashInit(hashTable);
 
